@@ -3,8 +3,8 @@ const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 8000
 const database = require('./database');
-const config = require('./config');
-const mongoose = require('mongoose');
+// const config = require('./config');
+// const mongoose = require('mongoose');
 
 database.connectToServer();
 // config.connectToServer();

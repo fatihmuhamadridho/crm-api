@@ -26,8 +26,8 @@ router.post('/', async(req, res) => {
     const customer = database.getDb().collection("customers")
     const { fullName } = req.body
     const newCustomer = {
-        _id: "2",
-        fullName: fullName
+        _id: "4",
+        fullName: fullName || ""
     }
     try {
         const result = await customer.insertOne(newCustomer)
@@ -41,9 +41,12 @@ router.put('/:id', async(req, res) => {
     const customer = database.getDb().collection("customers")
     const { fullName } = req.body
     const newCustomer = {
+        "validate": {
+
+        },
         $set: {
             fullName: fullName
-        }
+        },
     }
     try {
         const result = await customer.updateOne({ _id: req.params.id }, newCustomer)
